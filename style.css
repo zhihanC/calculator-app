@@ -1,0 +1,37 @@
+html,
+body {
+  height: 100%;
+}
+
+#calculator {
+  background-color: grey;
+  border-style: double;
+  height: 75%;
+  margin: 5% 30% 5% 30%;
+  /* padding: 5% 25% 5% 25%; */
+}
+
+#display {
+  background-color: white;
+  border-style: solid;
+  height: 15%;
+  width: auto;
+  margin: 2% 5% 2% 5%;
+}
+
+#buttonLayout {
+  height: 80%;
+  margin: 2% 5% 2% 5%;
+}
+
+.row {
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+button {
+  font-size: 100%;
+  border-radius: 20%;
+  margin: 2%;
+  padding: 7%;
+}
