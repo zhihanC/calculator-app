@@ -8,6 +8,7 @@ const clear = document.getElementById('clear');
 
 clear.addEventListener('click', () => {
   console.log('clear button was pressed');
+  display.innerHTML = '0';
 });
 
 const invert = document.getElementById('invert');
@@ -20,6 +21,18 @@ const percent = document.getElementById('percent');
 
 percent.addEventListener('click', () => {
   console.log('percent button was pressed');
+});
+
+const decimal = document.getElementById('decimal');
+
+decimal.addEventListener('click', () => {
+  console.log('decimal button was pressed');
+});
+
+const equal = document.getElementById('equal');
+
+equal.addEventListener('click', () => {
+  console.log('equal button was pressed');
 });
 
 //operations begin here
@@ -48,76 +61,74 @@ add.addEventListener('click', () => {
   console.log('add button was pressed');
 });
 
-const decimal = document.getElementById('decimal');
-
-decimal.addEventListener('click', () => {
-  console.log('decimal button was pressed');
-});
-
-const equal = document.getElementById('equal');
-
-equal.addEventListener('click', () => {
-  console.log('equal button was pressed');
-});
-
 // numbers begin here
 
 const zero = document.getElementById('zero');
 
 zero.addEventListener('click', () => {
   console.log('zero button was pressed');
+  display.innerHTML = '0';
 });
 
 const one = document.getElementById('one');
 
 one.addEventListener('click', () => {
   console.log('one button was pressed');
+  display.innerHTML = '1';
 });
 
 const two = document.getElementById('two');
 
 two.addEventListener('click', () => {
   console.log('two button was pressed');
+  display.innerHTML = '2';
 });
 
 const three = document.getElementById('three');
 
 three.addEventListener('click', () => {
   console.log('three button was pressed');
+  display.innerHTML = '3';
 });
 
 const four = document.getElementById('four');
 
 four.addEventListener('click', () => {
   console.log('four button was pressed');
+  display.innerHTML = '4';
 });
 
 const five = document.getElementById('five');
 
 five.addEventListener('click', () => {
   console.log('five button was pressed');
+  display.innerHTML = '5';
 });
 
 const six = document.getElementById('six');
 
 six.addEventListener('click', () => {
   console.log('six button was pressed');
+  display.innerHTML = '6';
 });
 
 const seven = document.getElementById('seven');
 
 seven.addEventListener('click', () => {
   console.log('seven button was pressed');
+  display.innerHTML = '7';
 });
 
 const eight = document.getElementById('eight');
 
 eight.addEventListener('click', () => {
   console.log('eight button was pressed');
+  display.innerHTML = '8';
 });
 
 const nine = document.getElementById('nine');
 
 nine.addEventListener('click', () => {
   console.log('nine button was pressed');
+  display.innerHTML = '9';
 });
