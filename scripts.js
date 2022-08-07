@@ -1,14 +1,16 @@
 let display = document.getElementById('display');
 
-let num1;
-let num2;
-let result;
+let num1 = 0; // keeps track of the first num
+let num2 = 0; // keeps track of the second num
+let numSwitch = false; // switches which num is being displayed
+let dpt = false; // if true, increments num by 10, else increments by dptCounter
+let dptCounter = 0.1; // keeps track of decimal increments
 
 const clear = document.getElementById('clear');
 
 clear.addEventListener('click', () => {
-  console.log('clear button was pressed');
   display.innerHTML = '0';
+  num1 = 0;
 });
 
 const invert = document.getElementById('invert');
@@ -26,7 +28,7 @@ percent.addEventListener('click', () => {
 const decimal = document.getElementById('decimal');
 
 decimal.addEventListener('click', () => {
-  console.log('decimal button was pressed');
+  dpt = true;
 });
 
 const equal = document.getElementById('equal');
@@ -66,15 +68,33 @@ add.addEventListener('click', () => {
 const zero = document.getElementById('zero');
 
 zero.addEventListener('click', () => {
-  console.log('zero button was pressed');
   display.innerHTML = '0';
 });
 
 const one = document.getElementById('one');
 
 one.addEventListener('click', () => {
-  console.log('one button was pressed');
-  display.innerHTML = '1';
+  if (numSwitch) {
+    if (num2 == 0) {
+      num2 = 1;
+    } else if (dpt) {
+      num2 = num2 + dptCounter * 1;
+      dptCounter = dptCounter / 10;
+    } else {
+      num2 = num2 * 10 + 1;
+    }
+    display.innerHTML = num2;
+  } else {
+    if (num1 == 0) {
+      num1 = 1;
+    } else if (dpt) {
+      num1 = num1 + dptCounter * 1;
+      dptCounter = dptCounter / 10;
+    } else {
+      num1 = num1 * 10 + 1;
+    }
+    display.innerHTML = num1;
+  }
 });
 
 const two = document.getElementById('two');
