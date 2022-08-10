@@ -2,7 +2,6 @@ let display = document.getElementById('display');
 
 var num1 = 0; // keeps track of the first num
 var num2 = 0; // keeps track of the second num
-//var result = 0; // keeps track of final answer
 var numSwitch = false; // switches which num is being displayed
 var dpt = false; // if true, increments num by 10, else increments by dptCounter
 var dptCounter = 0.1; // keeps track of decimal increments
@@ -15,6 +14,11 @@ clear.addEventListener('click', () => {
   display.innerHTML = '0';
   num1 = 0;
   num2 = 0;
+  numSwitch = false;
+  dpt = false;
+  dptCounter = 0.1;
+  operation = 0;
+  newEQ = false;
 });
 
 const invert = document.getElementById('invert');
@@ -61,6 +65,7 @@ const divide = document.getElementById('divide');
 
 divide.addEventListener('click', () => {
   numSwitch = true;
+  dptCounter = 0.1;
   operation = 4;
   console.log('num1: ', num1);
   console.log('num2: ', num2);
@@ -78,6 +83,7 @@ const multiply = document.getElementById('multiply');
 
 multiply.addEventListener('click', () => {
   numSwitch = true;
+  dptCounter = 0.1;
   operation = 3;
   console.log('num1: ', num1);
   console.log('num2: ', num2);
@@ -95,6 +101,7 @@ const subtract = document.getElementById('subtract');
 
 subtract.addEventListener('click', () => {
   numSwitch = true;
+  dptCounter = 0.1;
   operation = 2;
   console.log('num1: ', num1);
   console.log('num2: ', num2);
@@ -107,6 +114,7 @@ const add = document.getElementById('add');
 
 add.addEventListener('click', () => {
   numSwitch = true;
+  dptCounter = 0.1;
   operation = 1;
   console.log('num1: ', num1);
   console.log('num2: ', num2);
@@ -181,14 +189,17 @@ nine.addEventListener('click', () => {
 // Param: number is the specific int tied to the button
 // Bug: floating decimals?
 function numInput(number) {
-  // if (newEQ) {
-  //   num1 = number;
-  //   display.innerHTML = num1;
-  // } else {
-
-  // }
-  // newEQ = false;
+  // newEQ checks if an equation has just been solved and the answer is being displayed
+  if (newEQ) {
+    num1 = 0;
+    newEQ = false;
+  }
+  // numSwitch checks if num1 already has a val, in which case we give num2 a val
   if (numSwitch) {
+    // if val is 0, give the val of the button
+    // if dpt is true, add the val of the button adjusted for the tenths place etc.
+    // if there is already a val and dpt is false, add the val of the button after multiplying
+    // everything by 10
     if (num2 == 0) {
       num2 = number;
     } else if (dpt) {
@@ -199,6 +210,7 @@ function numInput(number) {
     }
     display.innerHTML = num2;
   } else {
+    // the above logic is true for num1 as well
     if (num1 == 0) {
       num1 = number;
     } else if (dpt) {
@@ -210,13 +222,3 @@ function numInput(number) {
     display.innerHTML = num1;
   }
 }
-
-// Bug Tracker
-// After solving an equation with the equal sign, upon pressing another number button, instead of
-// replacing the previous answer with a new number, it is tacking on the new number onto the end of
-// the previous answer. Line 207 - 209 is responsible for this behavior as this is what we usually
-// want to happen
-// Possible solutions:
-// 1. newEQ var where it turns true after solving an equation with equal sign, then
-// the function knows to begin a new equation (there are additional problems tho)
-// 2. results var that we can keep separate from the num1 var? I like this one so far
